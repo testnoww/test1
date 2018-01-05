@@ -32,11 +32,11 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
 	<plugin name="phonegap-plugin-image-capture" source="npm" spec="~1.1.2" />
 	<plugin name="phonegap-plugin-media-stream" source="npm" spec="~1.2.1" />
-	<plugin name="com.misiva.plugins.pushwoosh.beacons" source="npm" />
-	<plugin name="phonegap-plugin-push" spec="2.0.0" />
+	
+	<plugin name="phonegap-plugin-push" source="npm" spec="2.0.0" />
 	<!-- add a version here, otherwise PGB will use whatever the latest version of the package on npm is -->
-	<plugin name="phonegap-plugin-barcodescanner">
-	  <param name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes."source="npm"  />
+	<plugin name="phonegap-plugin-barcodescanner" source="npm">
+	  <param name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes."  />
 	</plugin>
 	<plugin name="com.devicepush.cordova-phonegap" source="npm">
     <param name="SENDER_ID" value="352427754921" />
