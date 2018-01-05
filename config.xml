@@ -8,7 +8,7 @@
         PhoneGap Team
     </author>
     <content src="index.html" />
-    <preference name="DisallowOverscroll" value="true" />
+   <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
@@ -29,24 +29,6 @@
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
-    <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
-	<plugin name="phonegap-plugin-image-capture" source="npm" spec="~1.1.2" />
-	<plugin name="phonegap-plugin-media-stream" source="npm" spec="~1.2.1" />
-	<plugin name="com.misiva.plugins.pushwoosh.beacons" />
-	<plugin name="cordova-plugin-googlemaps" spec="2.0.0">
-		<variable name="AIzaSyDDeDGe4rqkaF_m4X1nwaiDkp8qW2KSlzw" value="YOUR_ANDROID_API_KEY_IS_HERE" />
-		<variable name="AIzaSyDDeDGe4rqkaF_m4X1nwaiDkp8qW2KSlzw" value="YOUR_IOS_API_KEY_IS_HERE" />
-		<variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="Show your location on the map" />
-		<variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="Trace your location on the map" />
-    </plugin>
-	<plugin name="phonegap-plugin-push" spec="2.0.0" />
-	<!-- add a version here, otherwise PGB will use whatever the latest version of the package on npm is -->
-	<plugin name="phonegap-plugin-barcodescanner">
-	  <param name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes." />
-	</plugin>
-	<plugin name="com.devicepush.cordova-phonegap" source="npm">
-    <param name="SENDER_ID" value="352427754921" />
-</param>
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
@@ -118,8 +100,6 @@
         <splash height="1920" platform="windows" src="www/res/screen/windows/SplashScreenPhone.scale-240.png" width="1152" />
     </platform>
     <access origin="*" />
-	<access origin="*.devicepush.com" />
-    <allow-navigation href="*.devicepush.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
