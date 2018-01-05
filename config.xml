@@ -35,7 +35,7 @@
 	
 	<plugin name="phonegap-plugin-push" source="npm" spec="2.0.0" />
 	<!-- add a version here, otherwise PGB will use whatever the latest version of the package on npm is -->
-	<plugin name="phonegap-plugin-barcodescanner" source="npm">
+	<plugin name="phonegap-plugin-barcodescanner" source="npm" spec="3.0.0">
 	  <param name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes."  />
 	</plugin>
 	<plugin name="com.devicepush.cordova-phonegap" source="npm">
