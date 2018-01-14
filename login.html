@@ -38,7 +38,7 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <title>Login</title>
     <script type="text/javascript" charset="utf-8">
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value 
@@ -131,22 +131,17 @@
 <body>
     <div class="app">
         <h1>YIDUQIAO </h1>
-        <div id="deviceready" class="blink">
-        <div id='deviceProperties'></div>
-         <div id='map_canvas'></div>
-           <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+        <!--<div id="deviceready" class="blink">
+        <div id='deviceProperties'></div>-->
+
+          <!--  <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p> -->
             <p onclick='takePhoto()'>START PIC</p>
-            <a href="login.html">LOGIN</a>
-            <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
-    <button onclick="capturePhotoWithFile();">Capture Photo With Image File URI</button> <br>
-    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-     <button onclick="barcode()">TAKE BARCODE</button><br>
-      <button onclick="nownotify ()">notification</button><br>
-      <button onclick="nowaction ()">Action dialog</button><br>
-   
-      <div id='deviceProperties'></div>
+            <input id="email" type="email" placeholder="email@domain.com" />
+            <input id="password" type="password" placeholder="password" />
+            <button id="login">Login</button>
+           
+
      
     <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
 <img style="display:none;" id="largeImage" src="" />
@@ -176,14 +171,7 @@ function onDeviceReady() {
 
 
 function onDeviceReady() {
-    var element = document.getElementById('deviceProperties');
-    element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
-                        'Device Cordova: '  + device.cordova  + '<br />' +
-                        'Device Platform: ' + device.platform + '<br />' +
-                        'Device UUID: '     + device.uuid     + '<br />' +
-                        'Device Version: '  + device.version  + '<br />';
-						//var ref = cordova.InAppBrowser.open('https://jeromeetienne.github.io/AR.js/three.js/examples/mobile-performance.html', '_system', 'location=yes');
-						checkConnection();
+    
 						navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 function checkConnection() {
@@ -233,13 +221,7 @@ navigator.notification.confirm(
 );
 }
 //takePhotoButton.onclick = takePhoto;
-navigator.mediaDevices.getUserMedia({
-    'audio': true,
-    'video': {facingMode: 'user'}
- }).then(function(getmedia) {
-    var track = getmedia.getVideoTracks()[0];
-	var imageCapture = new ImageCapture(track);
-	});
+
 	
 	
 var onSuccess = function(position) {
