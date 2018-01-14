@@ -359,15 +359,16 @@ function takePhoto() {
 		error: function (e) {
                 alert(e);
             },
-		success: function(data){
-			alert(data);
-if(data=="success")
+		success: function(res){
+			ok = res.result;
+				email = res.email;
+if(ok==1)
 {
 localStorage.login="true";
 localStorage.email=email;
 window.location.href = "index.html";
 }
-else if(data="failed")
+else if(ok=0)
 {
 alert("Login error");
 $("#login").html('Login');
