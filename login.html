@@ -139,7 +139,7 @@
             <p onclick='takePhoto()'>START PIC</p>
             <input id="email" type="email" placeholder="email@domain.com" />
             <input id="password" type="password" placeholder="password" />
-            <button id="login">Login</button>
+            <button  onClick="gonow()"id="login">Login</button>
            
 
      
@@ -318,8 +318,14 @@ function takePhoto() {
     
    
     <script>
-	
-	$("#login").click(function(){
+	function gonow () {
+	var email = document.getElementById("email").value;
+	var password = document.getElementById("password").value;
+	alert(email+" "+password);
+
+	}
+		
+	$("#login1").click(function(){
 		var email=$("#email").val();
 		var password=$("#password").val();
 		var dataString="username="+email+"&password="+password+"&login=";
