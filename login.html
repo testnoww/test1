@@ -342,13 +342,13 @@ function takePhoto() {
 		success: function(res){
 			ok = res.result;
 				email = res.email;
-				alert(ok);
+				//alert(ok);
 			if(ok==1)
 			{
 			localStorage.login="true";
 			localStorage.email=email;
-			alert("ciao");
-			//window.location.href = "index.html";
+			//alert("ciao");
+			window.location.href = "index.html";
 			}
 			else if(ok=0)
 			{
