@@ -345,7 +345,7 @@ function takePhoto() {
 		var dataString="username="+email+"&password="+password+"&login=";
 		infobase = [email, password ];
 		alert(email+" "+password);
-		var url = "http://my.ydmalls.com/gm/loginnow/";
+		var url = "https://my.ydmalls.com/gm/loginnow/";
 		if($.trim(email).length>0 & $.trim(password).length>0)
 		{
 		$.ajax({
@@ -357,6 +357,7 @@ function takePhoto() {
 		cache: false,
 		beforeSend: function(){ $("#login").html('Connecting...');},
 		success: function(data){
+			alert(data);
 		if(data=="success")
 		{
 		localStorage.login="true";
