@@ -357,7 +357,7 @@ function takePhoto() {
 		cache: false,
 		beforeSend: function(){ $("#login").html('Connecting...');},
 		error: function (e) {
-                alert(e);
+                alert("error");
             },
 		success: function(res){
 			ok = res.result;
