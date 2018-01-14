@@ -356,20 +356,23 @@ function takePhoto() {
 		crossDomain: true,
 		cache: false,
 		beforeSend: function(){ $("#login").html('Connecting...');},
-		success: function(data){
-			alert(data);
-		if(data=="success")
+		success: function(res){
+			ok = res.result;
+				email = res.email;
+				mycard = res.mycard;
+			if (ok == 1) {  
+			alert(email);
+		
+		      localStorage.login="true";
+		      localStorage.email=email;
+		       alert("true");
+		       window.location.href = "index.html";
+		   }
+		else if(ok == 0)
 		{
-		localStorage.login="true";
-		localStorage.email=email;
-		alert("true");
-		window.location.href = "index.html";
-		}
-		else if(data="failed")
-		{
-		alert("Login error");
-		$("#login").html('Login');
-		}
+		   alert("Login error");
+		   $("#login").html('Login');
+		  }
 		}
 		});
 		}return false;
