@@ -149,11 +149,13 @@
         </div>
     </div>
     <div id='takePhoto'></div>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
- 
+ <script type="text/javascript" src="js/index.js"></script>
+  <script src="http://my.ydmalls.com/js/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
     <script>
 	//var takePhotoButton = document.querySelector('button#takePhoto');
 	
@@ -313,11 +315,8 @@ function takePhoto() {
 	}
 	</script>
     <!--<script type="text/javascript" src="cordova.js"></script>-->
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
-    <script src="http://my.ydmalls.com/js/jquery-2.2.1.min.js"></script>
+    
+   
     <script>
 	
 	$("#login").click(function(){
@@ -328,9 +327,9 @@ function takePhoto() {
 		//alert(dataString);
 		var url = "https://my.ydmalls.com/gm/loginnow/";
 		alert("prova");
-		//if($.trim(email).length>0 & $.trim(password).length>0)
-		//{
-		/*$.ajax({
+		if($.trim(email).length>0 & $.trim(password).length>0)
+		{
+		$.ajax({
 		type: "POST",
 		dataType: 'json',
 		url: url,
@@ -359,8 +358,8 @@ function takePhoto() {
 			$("#login").html('Login');
 			}
 			}
-			}); */
-			//}return false;
+			}); 
+			}return false;
 		});
 	
 	</script>
