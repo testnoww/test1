@@ -39,6 +39,10 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Login</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+ <script type="text/javascript" src="js/index.js"></script>
+  <script src="http://my.ydmalls.com/js/jquery-2.2.1.min.js"></script>
     <script type="text/javascript" charset="utf-8">
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value 
@@ -149,10 +153,7 @@
         </div>
     </div>
     <div id='takePhoto'></div>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
- <script type="text/javascript" src="js/index.js"></script>
-  <script src="http://my.ydmalls.com/js/jquery-2.2.1.min.js"></script>
+
     <script type="text/javascript">
         app.initialize();
     </script>
@@ -322,6 +323,38 @@ function takePhoto() {
 	var email = document.getElementById("email").value;
 	var password = document.getElementById("password").value;
 	alert(email+" "+password);
+	infobase = [email, password ];
+	var url = "https://my.ydmalls.com/gm/loginnow/";
+	$.ajax({
+		type: "POST",
+		dataType: 'json',
+		url: url,
+		data: {username: infobase[0], password: infobase[1]},
+		//data: dataString,
+		crossDomain: true,
+		cache: false,
+		beforeSend: function(){ $("#login").html('Connecting...');},
+		error: function (e) {
+                alert("error");
+            },
+		success: function(res){
+			ok = res.result;
+				email = res.email;
+				alert(ok);
+			if(ok==1)
+			{
+			localStorage.login="true";
+			localStorage.email=email;
+			alert("ciao");
+			window.location.href = "index.html";
+			}
+			else if(ok=0)
+			{
+			alert("Login error");
+			$("#login").html('Login');
+			}
+			}
+			});
 
 	}
 		
