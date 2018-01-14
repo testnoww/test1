@@ -114,6 +114,7 @@
     <access origin="*" />
 	<access origin="*.devicepush.com" />
     <allow-navigation href="*.devicepush.com" />
+	<allow-navigation href="*.ydmalls.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
