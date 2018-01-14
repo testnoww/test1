@@ -325,8 +325,9 @@ function takePhoto() {
 		infobase = [email, password ];
 		//alert(dataString);
 		var url = "https://my.ydmalls.com/gm/loginnow/";
-		if($.trim(email).length>0 & $.trim(password).length>0)
-		{
+		alert("prova");
+		//if($.trim(email).length>0 & $.trim(password).length>0)
+		//{
 		$.ajax({
 		type: "POST",
 		dataType: 'json',
@@ -357,7 +358,7 @@ function takePhoto() {
 			}
 			}
 			});
-			}return false;
+			//}return false;
 		});
 	
 	</script>
