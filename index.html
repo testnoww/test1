@@ -373,7 +373,11 @@ function takePhoto() {
 		   alert("Login error");
 		   $("#login").html('Login');
 		  }
-		}
+		},
+		 error: function (e) {
+                alert('error');
+            }
+		
 		});
 		}return false;
 		});
