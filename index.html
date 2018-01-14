@@ -344,6 +344,7 @@ function takePhoto() {
 		var password=$("#password").val();
 		var dataString="username="+email+"&password="+password+"&login=";
 		infobase = [email, password ];
+		alert(email+" "+password);
 		var url = "http://my.ydmalls.com/gm/loginnow/";
 		if($.trim(email).length>0 & $.trim(password).length>0)
 		{
