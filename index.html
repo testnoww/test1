@@ -343,7 +343,7 @@ function takePhoto() {
 		var password=$("#password").val();
 		var dataString="username="+email+"&password="+password+"&login=";
 		infobase = [email, password ];
-		alert(dataString);
+		//alert(dataString);
 		var url = "https://my.ydmalls.com/gm/loginnow/";
 		if($.trim(email).length>0 & $.trim(password).length>0)
 		{
@@ -362,21 +362,21 @@ function takePhoto() {
 		success: function(res){
 			ok = res.result;
 				email = res.email;
-if(ok==1)
-{
-localStorage.login="true";
-localStorage.email=email;
-window.location.href = "index.html";
-}
-else if(ok=0)
-{
-alert("Login error");
-$("#login").html('Login');
-}
-}
-});
-}return false;
-});
+			if(ok==1)
+			{
+			localStorage.login="true";
+			localStorage.email=email;
+			window.location.href = "index.html";
+			}
+			else if(ok=0)
+			{
+			alert("Login error");
+			$("#login").html('Login');
+			}
+			}
+			});
+			}return false;
+		});
 	
 	</script>
 </body>
