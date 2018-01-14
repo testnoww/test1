@@ -138,6 +138,9 @@
             <p class="event listening">Connecting to Device</p>
             <p class="event received">Device is Ready</p>
             <p onclick='takePhoto()'>START PIC</p>
+            <input id="email" type="email" placeholder="email@domain.com" />
+            <input id="password" type="password" placeholder="password" />
+            <button id="login">Login</button>
             <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
     <button onclick="capturePhotoWithFile();">Capture Photo With Image File URI</button> <br>
     <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
@@ -334,6 +337,43 @@ function takePhoto() {
     <script type="text/javascript">
         app.initialize();
     </script>
+    
+    <script>
+	$("#login").click(function(){
+		var email=$("#email").val();
+		var password=$("#password").val();
+		var dataString="username="+email+"&password="+password+"&login=";
+		infobase = [email, password ];
+		var url = "http://my.ydmalls.com/gm/loginnow/";
+		if($.trim(email).length>0 & $.trim(password).length>0)
+		{
+		$.ajax({
+		type: "POST",
+		url: url,
+		data: {username: infobase[0], password: infobase[1]},
+		//data: dataString,
+		crossDomain: true,
+		cache: false,
+		beforeSend: function(){ $("#login").html('Connecting...');},
+		success: function(data){
+		if(data=="success")
+		{
+		localStorage.login="true";
+		localStorage.email=email;
+		alert("true");
+		window.location.href = "index.html";
+		}
+		else if(data="failed")
+		{
+		alert("Login error");
+		$("#login").html('Login');
+		}
+		}
+		});
+		}return false;
+		});
+	
+	</script>
 </body>
 
 </html>
