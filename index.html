@@ -138,6 +138,8 @@
             <p class="event received">Device is Ready</p>
             <p onclick='takePhoto()'>START PIC</p>
             <a href="login.html">LOGIN</a>
+            <br><a href="#" onclick="openInAppBrowserBlank('http://bedesk.biz/app/back.php');">open InAppBrowser</a>
+
             <br><button onclick="openInAppBrowser('http://bedesk.biz/app/back.php');">Open inAPP</button> <br>
             <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
     <button onclick="capturePhotoWithFile();">Capture Photo With Image File URI</button> <br>
@@ -400,6 +402,30 @@ function closeInAppBrowser(event) {
         InAppBrowserReference.close();
     }
 }
+
+var ref = null;
+function openInAppBrowserBlank(url)
+{
+    try {
+ref = window.open(encodeURI(url),'_blank','location=no'); //encode is needed if you want to send a variable with your link if not you can use ref = window.open(url,'_blank','location=no');
+         ref.addEventListener('loadstop', LoadStop);
+         ref.addEventListener('exit', Close);
+    }
+    catch (err)    
+    {
+        alert(err);
+    }
+}
+function LoadStop(event) {
+         if(event.url == "http://bedesk.biz/app/closeInAppBrowser.html"){
+            // alert("fun load stop runs");
+             ref.close();
+         }    
+    }
+function Close(event) {
+         ref.removeEventListener('loadstop', LoadStop);
+         ref.removeEventListener('exit', Close);
+    } 
 	
 	</script>
 </body>
