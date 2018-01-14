@@ -27,8 +27,7 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline' blob:; img-src *;; media-src *" />
-    <!-- Good default declaration:
+     <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' blob:; img-src *;; media-src *" />    <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
     * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
@@ -344,43 +343,39 @@ function takePhoto() {
 		var password=$("#password").val();
 		var dataString="username="+email+"&password="+password+"&login=";
 		infobase = [email, password ];
-		alert(email+" "+password);
+		alert(dataString);
 		var url = "https://my.ydmalls.com/gm/loginnow/";
 		if($.trim(email).length>0 & $.trim(password).length>0)
 		{
 		$.ajax({
 		type: "POST",
+		dataType: 'json',
 		url: url,
 		data: {username: infobase[0], password: infobase[1]},
 		//data: dataString,
 		crossDomain: true,
 		cache: false,
 		beforeSend: function(){ $("#login").html('Connecting...');},
+		error: function (e) {
+                alert(e);
+            },
 		success: function(data){
-			ok = data.ok;
-				email = data.email;
-				alert(ok);
-	     if (ok == 1) {  
-			alert(email);
-		
-		      localStorage.login="true";
-		      localStorage.email=email;
-		       alert("true");
-		       window.location.href = "index.html";
-		   }
-		else if(ok == 0)
-		{
-		   alert("Login error");
-		   $("#login").html('Login');
-		  }
-		},
-		 error: function (e) {
-                alert('error');
-            }
-		
-		});
-		}return false;
-		});
+			alert(data);
+if(data=="success")
+{
+localStorage.login="true";
+localStorage.email=email;
+window.location.href = "index.html";
+}
+else if(data="failed")
+{
+alert("Login error");
+$("#login").html('Login');
+}
+}
+});
+}return false;
+});
 	
 	</script>
 </body>
