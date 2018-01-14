@@ -356,10 +356,9 @@ function takePhoto() {
 		crossDomain: true,
 		cache: false,
 		beforeSend: function(){ $("#login").html('Connecting...');},
-		success: function(res){
-			ok = res.ok;
-				email = res.email;
-				mycard = res.mycard;
+		success: function(data){
+			ok = data.ok;
+				email = data.email;
 				alert(ok);
 	     if (ok == 1) {  
 			alert(email);
